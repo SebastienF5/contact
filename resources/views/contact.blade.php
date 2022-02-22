@@ -13,9 +13,9 @@
                       <div class="alert alert-success">{{session('message')}}</div>
                     @endif
                 </div>
-            <div class="col-12 col-md-6 col-lg-7 mx-auto list-contact">
+            <div class="col-12 col-md-6 col-lg-7 mx-auto list-contact overflow-auto">
   
-                <table class="table overflow-auto">
+                <table class="table ">
                 <tbody>
                     @if($contactList->count()==0)
                       <tr><td>La liste de contact est vide !</td></tr>
@@ -24,8 +24,7 @@
                       <tr class="shadow-sm">
                             <td><a href="{{route('getContact',['id'=>$contact->id])}}" ><img src="{{Storage::url($contact->image)}}" class="col-2 col-md-2 col-lg-2" alt="profil image"></a></td>
                             <td>{{$contact->name}}</td>
-                            
-                        </tr>
+                      </tr>
                      @endforeach
                     @endif
                  </tbody>

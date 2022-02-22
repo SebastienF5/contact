@@ -116,7 +116,9 @@ a{
     color:#fff !important;
    
 }
-
+.list-unstyled li{
+    margin-bottom: 20px;
+}
 .item-menu i,a{
     color:#fff !important;
     font-size:20px;
@@ -136,6 +138,7 @@ a{
 
 .list-contact{
     margin-top:20px;
+    height:300px;
 }
 
 .list-contact table tr{
@@ -283,5 +286,35 @@ a{
    }
  }
     /* end */
+    @media screen and (max-width:576px){
+        .menu-contact{
+            height:auto;
+            
+            }
 
+            .block-logout{
+                margin-top:10px;
+            }
+    }
+    @media screen and (max-width:768px){
+        .menu-contact{
+            height:auto;
+            
+            }
+
+            .block-logout{
+                margin-top:10px;
+            }
+    }
+
+    @media screen and (max-width:992px){
+        .menu-contact{
+            height:auto;
+            
+            }
+
+            .block-logout{
+                margin-top:10px;
+            }
+    }
 /* end */

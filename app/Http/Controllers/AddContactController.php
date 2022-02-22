@@ -30,7 +30,7 @@ class AddContactController extends Controller
         ]);
 
        
-        if(empty($request->image)){
+        if(!isset($request->image)){
             $image="contact/user.png";
         }
       
@@ -56,11 +56,10 @@ class AddContactController extends Controller
      * @param Request $request,$id
      */
     public function updateContact(Request $request,$id){
-       
-       // dd(Storage::delete('public/contact/2XWOQx71vx3JhPkcYXT3zU3tKfZGwjSP1slJdQzi.jpg'));
+
         $getContact=Contact::find($id);
    
-       
+         
         $request->validate([
             'name'=>['string','max:255'],
             'number'=>['required','string','max:15'],
@@ -71,17 +70,19 @@ class AddContactController extends Controller
         ]);
      
     
-        if($getContact->image==1){
-            $image="contact/user.png";
+        if(!isset($request->image)){
+            $image=$getContact->image;
         }
       
         else{
             $image=Storage::disk('public')->put('contact',$request->image);
         }
-
+        
+       if(isset($request->image)){
        if(($getContact->image != $request->image) and $getContact->image != 'contact/user.png'){
            Storage::delete('public/'.$getContact->image);
        }
+    }
 
         $getContact->update([
             'name'=>$request->name,
