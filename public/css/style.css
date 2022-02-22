@@ -13,7 +13,9 @@ html, body {
 .error{
  color:var(--rouge) !important;
 }
-
+a{
+    text-decoration: none;
+}
 
 /* login */
 #login,#register{
@@ -96,9 +98,102 @@ html, body {
 }
 /* end */
 
+/* topbar */
+#topBar  .dropdown-menu{
+    text-align:right !important;
+
+}
+/* end */
+
+/* contact */
+#contact{
+    height:100vh;
+}
+.menu-contact{
+    height:100vh;
+    padding:10px;
+    background:var(--jaune);
+    color:#fff !important;
+
+}
+
+.item-menu i,a{
+    color:#fff !important;
+    font-size:20px;
+}
+
+.body-contact{
+    padding:30px;
+}
+
+.info-contact{
+    padding:20px;
+    border-radius:10px;
+    text-align:left;
+}
 
 
 
+.list-contact{
+    margin-top:20px;
+}
+
+.list-contact table tr{
+    text-align:left;
+    padding:25px;
+    border-radius:10px;
+    margin-bottom:-10px;
+}
+.list-contact table td{
+    font-size:25px;
+    line-height: 50px;
+    
+}
+.list-contact table td img{
+    border-radius:50px;
+    height:50px;
+    width:50px;
+}
+.single-img img{
+    border-radius: 50px;
+    height:100px;
+    width:100px;
+}
+.single-name{
+    font-size:30px;
+    font-weight: bold;
+   text-transform: uppercase;
+}
+
+.single{
+    height:auto;
+    padding:20px;
+}
+.fa-edit{
+    color:green !important;
+    
+}
+.fa-edit,.fa-trash-alt{
+    margin:30px;
+    font-size:25px;
+}
+.additional-info{
+    font-size:22px;
+    margin-top:5px;
+}
+.action-link{
+    padding:20px;
+}
+.fa-trash-alt{
+    color:var(--rouge) !important;
+}
+#image{
+    border-radius: 50px;
+    width: 80px !important;
+    height: 80px !important;
+    margin: 0 auto;
+}
+/* end */
 
 
 /* media querry */

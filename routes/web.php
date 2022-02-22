@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AddContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('contact');
+// });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
+Route::get('/',[ContactController::class,'show'])->middleware('auth')->name('contact');
+Route::get('/addcontact',[AddContactController::class,'show'])->middleware('auth')->name('addcontact');
+Route::get('/singlecontact/{id}',[ContactController::class,'showContact'])->middleware('auth')->name('getContact');
+
+Route::post('/addcontact',[AddContactController::class,'add'])->middleware('auth')->name('addcontact.add');
 
 require __DIR__.'/auth.php';
