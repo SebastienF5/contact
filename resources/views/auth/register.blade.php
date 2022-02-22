@@ -68,9 +68,9 @@
 
             </form>
                </div>
-          <div class="col-5 col-md-12 col-lg-6 login-infos text-center register-infos">
-          <p class=""> <i class="fas fa-address-book as-logo"></i></p>
-             <p >Connectez-vous a votre compte !</p>
+          <div class="col-5 col-md-12 col-lg-6 login-infos text-center register-infos" data-aos="flip-up" data-aos-delay="200">
+          <p class=""  data-aos="zoom-in" data-aos-delay="200"> <i class="fas fa-address-book as-logo"></i></p>
+             <p class="animate__animated animate__fadeInDown">Connectez-vous a votre compte !</p>
              <a href="{{route('login')}}" class="btn btn-jaune">Connection</a>
            
           </div>

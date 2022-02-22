@@ -46,18 +46,12 @@
                 <div class="mb-3">
                     <input type="submit" class="btn bg-bleu col-md-5" value="connecter">
                 </div>
-                <div class="flex items-center justify-end mb-2">
-                    @if (Route::has('password.request'))
-                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                            {{ __('Forgot your password?') }}
-                        </a>
-                    @endif
-                </div>
+           
 
             </form>
                </div>
-          <div class="col-5 col-md-12 col-lg-6 login-infos text-center">
-          <p class=""data-aos="zoom-in" data-aos-delay="200"> <i class="fas fa-address-book as-logo"></i></p>
+          <div class="col-5 col-md-12 col-lg-6 login-infos text-center" >
+          <p class="" data-aos="zoom-in" data-aos-delay="200"> <i class="fas fa-address-book as-logo"></i></p>
              <p class="text-center animate__animated animate__fadeInDown">Creer un compte afin d'utiliser notre <br>
                  Systeme de gestion de contact  <br>
                </p>

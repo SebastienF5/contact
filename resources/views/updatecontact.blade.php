@@ -9,11 +9,11 @@
            <div class="col-12 col-md-12 col-lg-10 body-contact text-center">
     <h1>Modifier Contact</h1>
            <div class="col-12 col-md-12 col-lg-7 mx-auto">
+             
            <form action="{{route('updateContact',['id'=>$getContact->id])}}" method="POST" enctype="multipart/form-data">
                @csrf
             <div class="mb-3">
-               
-                <input type="file" class="form-control col-md-2" id="image" value="{{$getContact->image}}" name="image" aria-describedby="imageHelp">
+              <input type="file" class="form-control col-md-1" id="image" value="{{$getContact->image}}" name="image" aria-describedby="imageHelp">
                     <div id="imageHelp" class="form-text">
                     @if($errors->has('image'))
                         <span class="error"> {{$errors->first('image')}}</span>

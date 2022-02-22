@@ -196,6 +196,12 @@ a{
     height: 80px !important;
     margin: 0 auto;
 }
+.update-img img{
+    width:40%;
+    border-radius: 5px;
+   height:150px;
+  
+}
 /* end */
 
 /* menu contact */
