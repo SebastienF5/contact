@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class AddContactController extends Controller
@@ -19,8 +20,6 @@ class AddContactController extends Controller
      * 
      */
     public function add(Request $request){
-     
-        $image=Storage::disk('public')->put('contact',$request->image);
         $request->validate([
             'name'=>['string','max:255'],
             'number'=>['required','string','max:15'],
@@ -30,7 +29,16 @@ class AddContactController extends Controller
             'user_id'=>['required','numeric','max:25']
         ]);
 
-     
+       
+        if(empty($request->image)){
+            $image="contact/user.png";
+        }
+      
+        else{
+            $image=Storage::disk('public')->put('contact',$request->image);
+        }
+
+        
         Contact::create([
             'name'=>$request->name,
             'number'=>$request->number,
@@ -39,6 +47,7 @@ class AddContactController extends Controller
             'image'=>$image,
             'user_id'=>$request->user_id
         ]);
+        
         return redirect(Route('contact'))->with('message','Contact enregistré avec succes!');
     }
 
@@ -46,8 +55,12 @@ class AddContactController extends Controller
      * fonction permettant de modifier un contact
      * @param Request $request,$id
      */
-    public function modifierContact(Request $request,$id){
-        $getContact=Contact::findOrFail($id);
+    public function updateContact(Request $request,$id){
+       
+       // dd(Storage::delete('public/contact/2XWOQx71vx3JhPkcYXT3zU3tKfZGwjSP1slJdQzi.jpg'));
+        $getContact=Contact::find($id);
+   
+       
         $request->validate([
             'name'=>['string','max:255'],
             'number'=>['required','string','max:15'],
@@ -57,7 +70,18 @@ class AddContactController extends Controller
             'user_id'=>['required','numeric','max:25']
         ]);
      
-        $image=Storage::disk('public')->put('contact-img',$request->image);
+    
+        if($getContact->image==1){
+            $image="contact/user.png";
+        }
+      
+        else{
+            $image=Storage::disk('public')->put('contact',$request->image);
+        }
+
+       if(($getContact->image != $request->image) and $getContact->image != 'contact/user.png'){
+           Storage::delete('public/'.$getContact->image);
+       }
 
         $getContact->update([
             'name'=>$request->name,
@@ -67,7 +91,7 @@ class AddContactController extends Controller
             'image'=>$image,
             'user_id'=>$request->user_id
         ]);
-
+      
         return redirect(Route('contact'))->with('message','Contact modifié avec succes!');
     }
 
@@ -78,9 +102,13 @@ class AddContactController extends Controller
 
      public function getContact($id){
         $title="Modifier Contact";
- 
-        $getContact=Contact::findOrFail($id);
-        $contacts=Contact::all();
-        return view('addcontact',compact('title','getContact','contact'));
+        $getContact=Contact::where([['id',$id],['user_id',Auth::user()->id]])->get()->first();
+     if(!empty($getContact))
+        return view('updateContact',compact('title','getContact'));
+        else
+        abort(404);
      }
+
+ 
+
 }

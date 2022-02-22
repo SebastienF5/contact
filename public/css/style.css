@@ -114,7 +114,7 @@ a{
     padding:10px;
     background:var(--jaune);
     color:#fff !important;
-
+   
 }
 
 .item-menu i,a{
@@ -194,6 +194,36 @@ a{
     margin: 0 auto;
 }
 /* end */
+
+/* menu contact */
+.user-info .as-logo{
+    
+ font-size:50px;    
+
+ margin-top:5px;
+}
+.user-info{
+    padding:20px;
+    font-weight: bold;
+    font-size:22px;
+    margin-bottom:20px;
+}
+.logout{
+    padding:5px;
+    background:var(--rouge);
+    color:#fff;
+   
+}
+
+.block-logout{
+    margin-top:240px;
+}
+
+.logout:hover{
+    color:#fff !important;
+}
+/* end */
+
 
 
 /* media querry */

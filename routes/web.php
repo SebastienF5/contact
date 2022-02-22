@@ -26,7 +26,10 @@ use App\Http\Controllers\AddContactController;
 Route::get('/',[ContactController::class,'show'])->middleware('auth')->name('contact');
 Route::get('/addcontact',[AddContactController::class,'show'])->middleware('auth')->name('addcontact');
 Route::get('/singlecontact/{id}',[ContactController::class,'showContact'])->middleware('auth')->name('getContact');
+Route::get('/updatecontact/{id}',[AddContactController::class,'getContact'])->middleware(['auth'])->name('updateContact');
+Route::get('/deletecontact/{id}',[ContactController::class,'delete'])->middleware('auth')->name('deleteContact');
+
 
 Route::post('/addcontact',[AddContactController::class,'add'])->middleware('auth')->name('addcontact.add');
-
+Route::post('/updatecontact/{id}',[AddContactController::class,'updateContact'])->middleware('auth')->name('updateContact');
 require __DIR__.'/auth.php';

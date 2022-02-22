@@ -2,11 +2,11 @@
 @section('content')
 
 <section id="contact">
-@include('partials.topbar')
+
     <div class="container-fluid">
         <div class="row">
            @include('partials.contactMenu')
-         <div class="col-12 col-md-12 col-lg-11 body-contact text-center">
+         <div class="col-12 col-md-12 col-lg-10 body-contact text-center">
             <h1>@if(!empty($contactList)){{$contactList->count()}} contact(s) @endif</h1>
             <div class="col-12 col-md-4 col-lg-4 ">
                     @if(session('message'))
